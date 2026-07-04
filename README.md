@@ -1,9 +1,13 @@
-# kotoba-lang/ui-gpu
+# kotoba-lang/kami-engine-hud-gpu
 
 Zero-dep portable `.cljc` — restored from the legacy `kami-engine/kami-ui-gpu` Rust crate
 (`src/lib.rs`, 354 lines; deleted in `kotoba-lang/kami-engine` PR #82 "Remove Rust workspace
 from kami-engine") as part of the **clj-wgsl migration** (ADR-2607010930,
-`com-junkawasaki/root`).
+`com-junkawasaki/root`). GPU rendering backend for
+[`kami-engine-hud`](https://github.com/kotoba-lang/kami-engine-hud) (`kotoba.ui`),
+renamed from `kotoba-lang/ui-gpu` to avoid collision with the `kotoba-ui`/`appkit`/
+`uikit` app design-system family, which is an unrelated stack (see
+`90-docs/adr/2607041500-kotoba-lang-ui-family-rename.md` in `com-junkawasaki/root`).
 
 ## Status
 
