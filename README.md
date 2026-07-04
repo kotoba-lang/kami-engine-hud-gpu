@@ -7,7 +7,7 @@ from kami-engine") as part of the **clj-wgsl migration** (ADR-2607010930,
 [`kami-engine-hud`](https://github.com/kotoba-lang/kami-engine-hud) (`kotoba.ui`),
 renamed from `kotoba-lang/ui-gpu` to avoid collision with the `kotoba-ui`/`appkit`/
 `uikit` app design-system family, which is an unrelated stack (see
-`90-docs/adr/2607041500-kotoba-lang-ui-family-rename.md` in `com-junkawasaki/root`).
+`90-docs/adr/2607051200-kotoba-lang-ui-family-rename.md` in `com-junkawasaki/root`).
 
 ## Status
 
