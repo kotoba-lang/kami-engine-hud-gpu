@@ -4,7 +4,7 @@
 
 (deftest namespace-loads
   (testing "the restored CLJC namespace loads"
-    (is (some? (the-ns 'ui_gpu)))))
+    (is (some? (find-ns 'ui_gpu)))))
 
 ;; Ported 1:1 from kami-ui-gpu/src/lib.rs `#[cfg(test)] mod tests`.
 
