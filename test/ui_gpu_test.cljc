@@ -3,4 +3,4 @@
             [ui_gpu]))
 (deftest namespace-loads
   (testing "the restored CLJC namespace loads"
-    (is (some? ui_gpu))))
+    (is (some? (find-ns 'ui_gpu)))))
