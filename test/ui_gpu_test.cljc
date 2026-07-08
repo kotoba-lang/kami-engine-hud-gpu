@@ -19,6 +19,20 @@
       (let [stack (ui/toast-stack-tick stack 2500)]
         (is (empty? (:toasts stack)) "toast should have expired")))))
 
+;; Additional coverage beyond the original Rust tests.
+
+(deftest persistent-toast-survives-ticking
+  (testing "a toast pushed with duration-ms 0 is persistent (per `toast`'s own
+            docstring) and must never be removed by toast-stack-tick, however
+            many ticks pass"
+    (let [stack (ui/toast-stack-push (ui/toast-stack) "Title" "Body" :info 0)
+          stack (ui/toast-stack-tick stack 1000)]
+      (is (= 1 (count (:toasts stack))) "persistent toast survives one tick")
+      (is (= 0 (:remaining-ms (first (:toasts stack)))))
+      (let [stack (ui/toast-stack-tick stack 999999)]
+        (is (= 1 (count (:toasts stack)))
+            "persistent toast survives an arbitrarily large tick too")))))
+
 (deftest test-toast-level-colors
   (is (= 0.95 (nth (ui/toast-level-color :info) 3)))
   (is (not= (ui/toast-level-color :error) (ui/toast-level-color :success))))
