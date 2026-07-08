@@ -219,12 +219,19 @@
 
 (defn toast-stack-tick
   "Advance toast timers and animations by `dt-ms` (frame delta in ms), then remove
-  expired toasts (`:remaining-ms` <= 0). Mirrors `ToastStack::tick`."
+  toasts that just expired this tick (`:remaining-ms` was positive before ticking
+  and reached 0). A toast pushed with `duration-ms` 0 is persistent (see `toast`)
+  and is never removed here -- `tick-toast` never decrements a non-positive
+  `:remaining-ms`, so distinguishing \"freshly expired\" from \"persistent\" requires
+  the pre-tick value, not just the post-tick 0. Mirrors `ToastStack::tick`."
   [stack dt-ms]
   (update stack :toasts
           (fn [toasts]
-            (into [] (comp (map #(tick-toast dt-ms %))
-                            (filter #(pos? (:remaining-ms %))))
+            (into [] (comp (map (fn [t] [(:remaining-ms t) (tick-toast dt-ms t)]))
+                            (filter (fn [[remaining-before ticked]]
+                                      (or (zero? remaining-before)
+                                          (pos? (:remaining-ms ticked)))))
+                            (map second))
                   toasts))))
 
 (defn toast-stack-render
