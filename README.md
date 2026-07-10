@@ -1,3 +1,6 @@
+> **Note (ADR-2607102200 addendum 2):** sibling `kami-engine-hud` (`kotoba.ui`)
+> is merged into `kami-engine-app-sdk`. This GPU backend package is unchanged.
+
 # kotoba-lang/kami-engine-hud-gpu
 
 Zero-dep portable `.cljc` — restored from the legacy `kami-engine/kami-ui-gpu` Rust crate
