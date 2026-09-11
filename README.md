@@ -14,7 +14,7 @@ renamed from `kotoba-lang/ui-gpu` to avoid collision with the `kotoba-ui`/`appki
 
 ## Status
 
-Restored. `src/ui_gpu.cljc` ports every public struct/enum/fn from the original crate as
+Restored. `src/ui_gpu.cljk` ports every public struct/enum/fn from the original crate as
 pure data (plain maps with keyword keys) + pure functions:
 
 - `UiRect` / `UiText` / `UiColorGlyph` GPU instance shapes (`ui-rect`, `ui-text`,
@@ -35,7 +35,7 @@ portable computational/data-shape logic. Native GPU submission (wgpu / wasmtime 
 wasmi) stays substrate and is out of scope for this namespace.
 
 All 3 original Rust `#[test]`s (`test_toast_stack`, `test_toast_level_colors`,
-`test_ui_layer`) are ported 1:1 to `test/ui_gpu_test.cljc`, plus the `namespace-loads`
+`test_ui_layer`) are ported 1:1 to `test/ui_gpu_test.cljk`, plus the `namespace-loads`
 smoke test and one additional test covering `bordered-rect` and gradient-command
 flattening. **5 tests / 14 assertions, 0 failures, 0 errors.**
 
