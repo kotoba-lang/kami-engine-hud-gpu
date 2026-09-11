@@ -42,5 +42,5 @@ flattening. **5 tests / 14 assertions, 0 failures, 0 errors.**
 ## Develop
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
