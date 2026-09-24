@@ -1,5 +1,5 @@
 (ns ui_gpu-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [ui_gpu :as ui]))
 
 (deftest namespace-loads
